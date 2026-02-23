@@ -64,13 +64,13 @@ export default function AgentCharacter({
           cy="130"
           rx="35"
           ry="28"
-          fill={agent.bodyColor}
+          fill={agent.color}
           opacity={0.7}
         />
         {/* Suit/shirt collar */}
         <path
           d="M 50 115 Q 70 125 90 115 Q 95 130 90 145 Q 70 150 50 145 Q 45 130 50 115"
-          fill={agent.bodyColor}
+          fill={agent.color}
           opacity={0.85}
         />
 
@@ -79,14 +79,14 @@ export default function AgentCharacter({
           cx="70"
           cy="65"
           r="38"
-          fill={agent.bodyColor}
+          fill={agent.color}
           opacity={0.15}
         />
         <circle
           cx="70"
           cy="63"
           r="36"
-          fill={agent.bodyColor}
+          fill={agent.color}
         />
 
         {/* Face highlight */}
@@ -132,7 +132,7 @@ export default function AgentCharacter({
         <path
           d="M 42 125 Q 30 140 35 155"
           fill="none"
-          stroke={agent.bodyColor}
+          stroke={agent.color}
           strokeWidth="10"
           strokeLinecap="round"
           opacity={0.8}
@@ -141,7 +141,7 @@ export default function AgentCharacter({
         <path
           d="M 98 125 Q 110 140 105 155"
           fill="none"
-          stroke={agent.bodyColor}
+          stroke={agent.color}
           strokeWidth="10"
           strokeLinecap="round"
           opacity={0.8}
@@ -173,8 +173,8 @@ export default function AgentCharacter({
         {agent.id === 'designer' && (
           <>
             {/* Beret */}
-            <ellipse cx="70" cy="30" rx="24" ry="9" fill={agent.bodyColor} opacity={0.8} />
-            <circle cx="70" cy="23" r="5" fill={agent.bodyColor} />
+            <ellipse cx="70" cy="30" rx="24" ry="9" fill={agent.color} opacity={0.8} />
+            <circle cx="70" cy="23" r="5" fill={agent.color} />
           </>
         )}
         {agent.id === 'analyst' && (

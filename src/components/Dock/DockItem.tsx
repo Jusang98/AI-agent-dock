@@ -7,7 +7,7 @@ import {
   type MotionValue,
 } from 'framer-motion';
 import type { Agent } from '../../data/agents';
-import AgentCharacter from '../Agent/AgentCharacter';
+import RiveAgent from '../Agent/RiveAgent';
 
 interface DockItemProps {
   agent: Agent;
@@ -19,7 +19,7 @@ interface DockItemProps {
   onClick: () => void;
 }
 
-const BASE_SIZE = 120;
+const BASE_SIZE = 140;
 
 export default function DockItem({
   agent,
@@ -39,15 +39,15 @@ export default function DockItem({
     return val - bounds.x - bounds.width / 2;
   });
 
-  const scaleRaw = useTransform(distance, [-200, 0, 200], [1, 1.25, 1]);
+  const scaleRaw = useTransform(distance, [-200, 0, 200], [1, 1.2, 1]);
   const scale = useSpring(scaleRaw, {
     mass: 0.1,
     stiffness: 170,
     damping: 12,
   });
 
-  const size = useTransform(scale, (s: number) => s * BASE_SIZE);
-  const height = useTransform(scale, (s: number) => s * BASE_SIZE * (180 / 140));
+  const width = useTransform(scale, (s: number) => s * BASE_SIZE);
+  const height = useTransform(scale, (s: number) => s * BASE_SIZE * 1.2);
 
   return (
     <div
@@ -55,7 +55,7 @@ export default function DockItem({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Hover tooltip like the screenshot */}
+      {/* Hover tooltip */}
       <AnimatePresence>
         {isHovered && (
           <motion.div
@@ -84,8 +84,8 @@ export default function DockItem({
       <motion.div
         ref={ref}
         style={{
-          width: size,
-          height: height,
+          width,
+          height,
           display: 'flex',
           alignItems: 'flex-end',
           justifyContent: 'center',
@@ -93,7 +93,7 @@ export default function DockItem({
         }}
       >
         <motion.div style={{ scale, originY: 1 }}>
-          <AgentCharacter
+          <RiveAgent
             agent={agent}
             mouseX={globalMouseX}
             mouseY={globalMouseY}

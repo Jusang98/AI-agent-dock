@@ -1,11 +1,18 @@
+export interface RiveConfig {
+  src: string;
+  stateMachine: string;
+  axisXInput?: string;
+  axisYInput?: string;
+  artboard?: string;
+}
+
 export interface Agent {
   id: string;
   name: string;
   emoji: string;
   color: string;
   description: string;
-  eyeColor: string;
-  bodyColor: string;
+  rive: RiveConfig;
 }
 
 export const AGENTS: Agent[] = [
@@ -15,8 +22,10 @@ export const AGENTS: Agent[] = [
     emoji: '💻',
     color: '#3b82f6',
     description: '코드를 작성합니다',
-    eyeColor: '#60a5fa',
-    bodyColor: '#3b82f6',
+    rive: {
+      src: '/animations/robot.riv',
+      stateMachine: 'State Machine 1',
+    },
   },
   {
     id: 'designer',
@@ -24,8 +33,10 @@ export const AGENTS: Agent[] = [
     emoji: '🎨',
     color: '#ec4899',
     description: '디자인을 담당합니다',
-    eyeColor: '#f472b6',
-    bodyColor: '#ec4899',
+    rive: {
+      src: '/animations/girl.riv',
+      stateMachine: 'State Machine 1',
+    },
   },
   {
     id: 'analyst',
@@ -33,7 +44,9 @@ export const AGENTS: Agent[] = [
     emoji: '📊',
     color: '#10b981',
     description: '데이터를 분석합니다',
-    eyeColor: '#34d399',
-    bodyColor: '#10b981',
+    rive: {
+      src: '/animations/eyetracking.riv',
+      stateMachine: 'State Machine 1',
+    },
   },
 ];
