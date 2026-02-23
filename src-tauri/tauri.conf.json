@@ -1,0 +1,35 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nicedoc/spec/master/schemas/tauri-conf-v2.json",
+  "productName": "Agent Dock",
+  "version": "0.1.0",
+  "identifier": "com.agentdock.app",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:5173",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "bundle": {
+    "icon": [
+      "icons/icon.png"
+    ]
+  },
+  "app": {
+    "macOSPrivateApi": true,
+    "windows": [
+      {
+        "title": "Agent Dock",
+        "width": 800,
+        "height": 350,
+        "x": null,
+        "y": null,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "shadow": false
+      }
+    ]
+  }
+}
