@@ -36,9 +36,6 @@ export default function PromptPanel({ agent, onClose }: PromptPanelProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          onClick={(e) => {
-            if (e.target === e.currentTarget) onClose();
-          }}
         >
           <motion.div
             className="prompt-panel"

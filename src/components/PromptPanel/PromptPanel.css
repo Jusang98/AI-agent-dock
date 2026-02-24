@@ -1,41 +1,42 @@
 .prompt-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  bottom: 260px;
   z-index: 50;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  padding-bottom: 12px;
+  pointer-events: none;
 }
 
 .prompt-panel {
-  width: 560px;
+  width: 480px;
   max-width: 90vw;
-  background: rgba(30, 30, 40, 0.95);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+  background: #1e1e2e;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
   overflow: hidden;
+  pointer-events: auto;
 }
 
 .prompt-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 20px 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .prompt-header-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .prompt-header-info {
@@ -44,25 +45,25 @@
 
 .prompt-header-info h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: #fff;
 }
 
 .prompt-header-info p {
   margin: 2px 0 0;
-  font-size: 13px;
+  font-size: 12px;
   color: rgba(255, 255, 255, 0.5);
 }
 
 .prompt-close {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 8px;
   border: none;
   background: rgba(255, 255, 255, 0.06);
   color: rgba(255, 255, 255, 0.5);
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -76,41 +77,41 @@
 }
 
 .prompt-messages {
-  padding: 20px 24px;
-  min-height: 200px;
-  max-height: 400px;
+  padding: 16px 18px;
+  min-height: 80px;
+  max-height: 180px;
   overflow-y: auto;
 }
 
 .prompt-welcome {
   text-align: center;
-  padding: 40px 20px;
+  padding: 16px 12px;
   color: rgba(255, 255, 255, 0.4);
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .prompt-welcome .emoji {
-  font-size: 48px;
+  font-size: 32px;
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .prompt-input-area {
-  padding: 16px 24px 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 12px 18px 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .prompt-input {
   flex: 1;
-  padding: 12px 16px;
-  border-radius: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.04);
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
   outline: none;
   transition: border-color 0.2s ease;
 }
@@ -124,10 +125,10 @@
 }
 
 .prompt-send {
-  padding: 12px 20px;
-  border-radius: 12px;
+  padding: 10px 16px;
+  border-radius: 10px;
   border: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: #fff;
   cursor: pointer;
