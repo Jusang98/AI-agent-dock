@@ -23,7 +23,7 @@ export const AGENTS: Agent[] = [
     color: '#3b82f6',
     description: '코드를 작성합니다',
     rive: {
-      src: '/animations/teddy.riv',
+      src: '/animations/authteddy.riv',
       stateMachine: 'Login Machine',
     },
   },
