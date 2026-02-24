@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rive Preview</title>
+  <style>
+    body { background: #1a1a2e; color: white; font-family: sans-serif; display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; }
+    .card { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 16px; text-align: center; }
+    .card h3 { margin: 8px 0; font-size: 14px; }
+    canvas { width: 200px; height: 200px; }
+  </style>
+</head>
+<body>
+  <script src="https://unpkg.com/@rive-app/canvas@2.7.0"></script>
+  <script>
+    const files = [
+      'teddy.riv', 'teddy2.riv', 'bear.riv', 'cat.riv',
+      'catbutton.riv', 'catinteractive.riv', 'robot.riv', 'dog.riv'
+    ];
+    files.forEach(f => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      const canvas = document.createElement('canvas');
+      canvas.width = 400; canvas.height = 400;
+      const h3 = document.createElement('h3');
+      h3.textContent = f;
+      card.appendChild(canvas);
+      card.appendChild(h3);
+      document.body.appendChild(card);
+      new rive.Rive({ src: '/animations/' + f, canvas, autoplay: true, stateMachines: 'State Machine 1' });
+    });
+  </script>
+</body>
+</html>

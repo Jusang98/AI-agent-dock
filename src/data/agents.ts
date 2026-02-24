@@ -19,33 +19,33 @@ export const AGENTS: Agent[] = [
   {
     id: 'coder',
     name: 'Coder',
-    emoji: '🐱',
+    emoji: '🧸',
     color: '#3b82f6',
     description: '코드를 작성합니다',
+    rive: {
+      src: '/animations/teddy.riv',
+      stateMachine: 'Login Machine',
+    },
+  },
+  {
+    id: 'designer',
+    name: 'Designer',
+    emoji: '🐱',
+    color: '#ec4899',
+    description: '디자인을 담당합니다',
     rive: {
       src: '/animations/cat.riv',
       stateMachine: 'State Machine 1',
     },
   },
   {
-    id: 'designer',
-    name: 'Designer',
-    emoji: '🐻',
-    color: '#ec4899',
-    description: '디자인을 담당합니다',
-    rive: {
-      src: '/animations/bear.riv',
-      stateMachine: 'State Machine 1',
-    },
-  },
-  {
     id: 'analyst',
     name: 'Analyst',
-    emoji: '🐶',
+    emoji: '🐻',
     color: '#10b981',
     description: '데이터를 분석합니다',
     rive: {
-      src: '/animations/dog.riv',
+      src: '/animations/bear.riv',
       stateMachine: 'State Machine 1',
     },
   },
