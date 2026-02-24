@@ -34,7 +34,7 @@ export const AGENTS: Agent[] = [
     color: '#ec4899',
     description: '디자인을 담당합니다',
     rive: {
-      src: '/animations/cat.riv',
+      src: '/animations/cattrack.riv',
       stateMachine: 'State Machine 1',
     },
   },
