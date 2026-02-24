@@ -1,13 +1,22 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useMousePosition } from './hooks/useMousePosition';
 import { AGENTS } from './data/agents';
 import Dock from './components/Dock/Dock';
 import PromptPanel from './components/PromptPanel/PromptPanel';
 import './App.css';
 
+// Tauri API for click-through
+let tauriWindow: typeof import('@tauri-apps/api/window') | null = null;
+if (typeof window !== 'undefined' && '__TAURI__' in window) {
+  import('@tauri-apps/api/window').then((mod) => {
+    tauriWindow = mod;
+  });
+}
+
 function App() {
   const { x: mouseX, y: mouseY } = useMousePosition();
   const [selectedAgentId, setSelectedAgentId] = useState<string | null>(null);
+  const [isOverInteractive, setIsOverInteractive] = useState(false);
 
   const selectedAgent = selectedAgentId
     ? AGENTS.find((a) => a.id === selectedAgentId) ?? null
@@ -19,6 +28,27 @@ function App() {
 
   const handleClose = useCallback(() => {
     setSelectedAgentId(null);
+  }, []);
+
+  // Toggle click-through: ignore cursor on empty areas, capture on interactive elements
+  useEffect(() => {
+    if (!tauriWindow) return;
+    const win = tauriWindow.getCurrentWindow();
+    win.setIgnoreCursorEvents(!isOverInteractive).catch(() => {});
+  }, [isOverInteractive]);
+
+  // Track whether mouse is over an interactive element
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const interactive = target.closest(
+        '.dock-container, .dock-shelf, .prompt-panel, .agent-tooltip'
+      );
+      setIsOverInteractive(!!interactive);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   return (
